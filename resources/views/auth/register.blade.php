@@ -7,9 +7,17 @@
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Register to start your session</p>
   
         <form action="{{ asset('') }}" method="post">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Username">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
           <div class="input-group mb-3">
             <input type="email" class="form-control" placeholder="Email">
             <div class="input-group-append">
@@ -37,7 +45,7 @@
             </div>
             <!-- /.col -->
             <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+              <button type="submit" class="btn btn-primary btn-block">Register</button>
             </div>
             <!-- /.col -->
           </div>
@@ -50,7 +58,7 @@
           <a href="{{ route('forgot_password') }}">I forgot my password</a>
         </p>
         <p class="mb-0">
-          <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
+          <a href="{{ route('login') }}" class="text-center">Login Here</a>
         </p>
       </div>
       <!-- /.login-card-body -->
