@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[AuthController::class,'login'])->name('login');
+Route::post('/loginauth',[AuthController::class,'loginauth'])->name('loginauth');
 Route::get('/register',[AuthController::class,'register'])->name('register');
+Route::post('/register_auth',[AuthController::class,'register_auth'])->name('register_auth');
 Route::get('/forgot_passwor',[AuthController::class,'forgot_passwor'])->name('forgot_password');
+Route::get('/dashboard',[AuthController::class,'dashboard'])->name('dashboard');
+
 

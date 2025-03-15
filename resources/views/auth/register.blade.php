@@ -5,35 +5,47 @@
       <a href="{{ asset('') }}"><b>GST</b>Billing</a>
     </div>
     <!-- /.login-logo -->
+{{-- @if ($errors->any())
+@foreach ( $errors->all() as $error)
+{{$error}}
+@endforeach
+@endif --}}
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Register to start your session</p>
   
-        <form action="{{ asset('') }}" method="post">
+        <form action="{{ route('register_auth')}}" method="post">
+          @csrf
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Username">
+            <input type="text" class="form-control" placeholder="Username" name="name" value="{{ old('name') }}">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
               </div>
             </div>
           </div>
+          <span style="color: red;text-align:center;">{{ $errors->first('name') }}</span>
+
           <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
               </div>
             </div>
           </div>
+          <span style="color: red;text-align:center;">{{ $errors->first('email') }}</span>
+
           <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password" name="password">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
               </div>
             </div>
           </div>
+          <span style="color: red;text-align:center;">{{ $errors->first('password') }}</span>
+
           <div class="row">
             <div class="col-8">
               <div class="icheck-primary">
