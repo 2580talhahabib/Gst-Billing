@@ -48,7 +48,8 @@ class AuthController extends Controller
         $data['meta_title']='Forgot Password';
          return view('auth.forgot_password',$data);
     }
-   public function dashboard(){
-    return view('DasHBoard');
-   }
+  public function logout(){
+    Auth::logout();
+    return redirect()->route('register')->with('danger','User logout');
+  }
 }

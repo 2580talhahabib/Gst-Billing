@@ -10,6 +10,7 @@
 {{$error}}
 @endforeach
 @endif --}}
+@include('message')
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Register to start your session</p>
