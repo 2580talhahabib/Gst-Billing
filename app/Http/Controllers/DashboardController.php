@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
     public function dashboard(){
         if(Auth::user()->role_as ==1){
+            // $data['isSelected']=true;
             return view('admin.DasHBoard');
         }
        }

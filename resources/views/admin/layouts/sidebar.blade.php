@@ -24,16 +24,15 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="{{ route('dashboard') }}" class="nav-link  {{ request()->routeIs('dashboard') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
            
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('parties_type') }}" class="nav-link {{ request()->routeIs('parties_type') ? 'active' : '' }}">
               <i class="nav-icon far fa-user"></i>
               <p>
                 Parties Type

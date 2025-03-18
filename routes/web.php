@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PartiesTypeController;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,14 @@ Route::post('/register_auth',[AuthController::class,'register_auth'])->name('reg
 Route::get('/forgot_passwor',[AuthController::class,'forgot_passwor'])->name('forgot_password');
 
 Route::middleware(['Admin'])->group(function () {
+    // Dashboard controller 
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+
+// parties type controller 
+Route::get('/parties_type',[PartiesTypeController::class,'parties_type'])->name('parties_type');
+Route::get('/parties_type_add',[PartiesTypeController::class,'parties_type_add'])->name('parties_type_add');
+Route::post('/parties_type_store',[PartiesTypeController::class,'parties_type_store'])->name('parties_type_store');
+
 });
 
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
