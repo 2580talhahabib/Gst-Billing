@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class parties_type extends Model
 {
     use HasFactory;
+    protected $table = 'parties_types';
+    protected $guarded=[];
 }

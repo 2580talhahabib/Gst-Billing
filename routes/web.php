@@ -33,6 +33,9 @@ Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboa
 Route::get('/parties_type',[PartiesTypeController::class,'parties_type'])->name('parties_type');
 Route::get('/parties_type_add',[PartiesTypeController::class,'parties_type_add'])->name('parties_type_add');
 Route::post('/parties_type_store',[PartiesTypeController::class,'parties_type_store'])->name('parties_type_store');
+Route::get('/parties_type_edit/{id}',[PartiesTypeController::class,'parties_type_edit'])->name('parties_type_edit');
+Route::post('/parties_type_update/{id}',[PartiesTypeController::class,'parties_type_update'])->name('parties_type_update');
+Route::delete('/parties_type_delete/{id}',[PartiesTypeController::class,'parties_type_delete'])->name('parties_type_delete');
 
 });
 

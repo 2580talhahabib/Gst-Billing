@@ -8,3 +8,8 @@
         {{ Session::get('danger') }}
     </div>
 @endif
+@if (request()->query('status') == 'success')
+<div class="alert alert-success text-center">
+  {{ request()->query('message') }}
+</div>
+@endif

@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
      <div class="content-wrapper">
+    @include('message')
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -40,15 +41,18 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($records as $record)
                     <tr>
-                      <td>1.</td>
-                      <td>Update software</td>
+                      <td>{{ $record->id }}</td>
+                      <td>{{ $record->parties_name }}</td>
                       <td>
-                        <a href="" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
-                        <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        <a href="{{ route('parties_type_edit', $record->id) }}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="" onclick="deleteCategory({{ $record->id }})" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                       </td>
                      
                     </tr>
+                    @endforeach
+                   
                 
                   </tbody>
                 </table>
@@ -75,4 +79,30 @@
     </section>
     <!-- /.content -->
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+ function deleteCategory(id){
+  var url='{{ route('parties_type_delete','ID') }}'
+  var DeleteUrl=url.replace('ID',id)
+  // alert(url);
+  // return false;
+if(confirm('Are you sure you want to delete')){
+  $.ajax({
+  url:DeleteUrl,
+  type:'delete',
+  data:{},
+  dataType:'json',
+  headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') 
+        },
+  success:function(response){
+  if(response.status == true){
+    window.location.href= "{{ route('parties_type') }}"
+  }
+  }
+})
+}
+ }
+  </script>
 @endsection

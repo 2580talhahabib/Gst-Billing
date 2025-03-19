@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parties_type', function (Blueprint $table) {
+        Schema::create('parties_types', function (Blueprint $table) {
             $table->id();
             $table->string('parties_name');
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parties_type');
+        Schema::dropIfExists('parties_types');
     }
 };
