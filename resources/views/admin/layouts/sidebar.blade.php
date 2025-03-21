@@ -38,8 +38,22 @@
                 Parties Type
               </p>
             </a>
+            
           </li>
-  
+          
+          <li class="nav-item">
+
+            <a href="{{ route('parties.index') }}" class="nav-link  {{ request()->routeIs('parties.index') ? 'active' : '' }}">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Parties 
+              </p>
+            </a>
+          </li>
+          
+ {{-- @php
+   dump(request())
+ @endphp --}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

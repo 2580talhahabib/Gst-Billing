@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PartiesTypeController;
+use App\Http\Controllers\PartyController;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -37,6 +38,11 @@ Route::get('/parties_type_edit/{id}',[PartiesTypeController::class,'parties_type
 Route::post('/parties_type_update/{id}',[PartiesTypeController::class,'parties_type_update'])->name('parties_type_update');
 Route::delete('/parties_type_delete/{id}',[PartiesTypeController::class,'parties_type_delete'])->name('parties_type_delete');
 
+
+// parties controller 
+Route::get('/parties',[PartyController::class,'index'])->name('parties.index');
+Route::get('/parties-create',[PartyController::class,'create'])->name('parties.create');
+Route::post('/parties-store',[PartyController::class,'store'])->name('parties.store');
 });
 
 Route::get('logout',[AuthController::class,'logout'])->name('logout');

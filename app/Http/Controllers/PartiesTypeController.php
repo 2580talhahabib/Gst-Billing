@@ -10,6 +10,8 @@ use Nette\Utils\Strings;
 class PartiesTypeController extends Controller
 {
     public function parties_type(){
+        // $party_type=parties_type::with('parties')->get();
+        // return $party_type;
         $records=parties_type::get();
         return view('admin.parties_Type.list',compact('records'));
         // return view('admin.DasHBoard');
