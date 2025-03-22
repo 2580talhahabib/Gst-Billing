@@ -57,10 +57,10 @@
                     <td>{{ $records->bank_name }}</td>
                     <td>{{ $records->ifsc_code }}</td>
                     <td>{{ $records->branch_address }}</td>
-                    
-                    <td>
-                      <a href="" class="btn btn-success">Update</a>
-                    </td>
+                    <td class="d-flex"> 
+                    <a href="{{ route('parties.edit',$records->id) }}"  class="btn btn-info m-1"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="#"  data-id={{ $records->id }} class="btn btn-danger m-1 deleted" ><i class="fas fa-trash"></i></a>
+                  </td>
                     </tr>
                     @endforeach
                  
@@ -92,14 +92,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
- function deleteCategory(id){
-  var url='{{ route('parties_type_delete','ID') }}'
-  var DeleteUrl=url.replace('ID',id)
-  // alert(url);
-  // return false;
-if(confirm('Are you sure you want to delete')){
-  $.ajax({
-  url:DeleteUrl,
+$(document).ready(function(){
+  $(".deleted").click(function(e){
+ e.preventDefault();
+ let id=$('.deleted').data('id');
+ let url="{{route('parties.Destroy', 'ids')  }}";
+ url=url.replace('ids',id);
+
+ $.ajax({
+  url:url,
   type:'delete',
   data:{},
   dataType:'json',
@@ -108,11 +109,13 @@ if(confirm('Are you sure you want to delete')){
         },
   success:function(response){
   if(response.status == true){
-    window.location.href= "{{ route('parties_type') }}"
+   window.location.href"{{ route('parties.index') }}?status=success&message=Record deleted successfully"
+  }else{
+     window.location.href="{{ route('parties.index') }}?status=danger&message=Record did not found"
   }
-  }
+  }})
+
 })
-}
- }
+})
   </script>
 @endsection

@@ -43,6 +43,9 @@ Route::delete('/parties_type_delete/{id}',[PartiesTypeController::class,'parties
 Route::get('/parties',[PartyController::class,'index'])->name('parties.index');
 Route::get('/parties-create',[PartyController::class,'create'])->name('parties.create');
 Route::post('/parties-store',[PartyController::class,'store'])->name('parties.store');
+Route::get('/parties-edit/{id}',[PartyController::class,'edit'])->name('parties.edit');
+Route::put('/parties-update/{id}',[PartyController::class,'update'])->name('parties.update');
+Route::delete('/parties-Destroy/{id}',[PartyController::class,'Destroy'])->name('parties.Destroy');
 });
 
 Route::get('logout',[AuthController::class,'logout'])->name('logout');

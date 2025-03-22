@@ -13,3 +13,8 @@
   {{ request()->query('message') }}
 </div>
 @endif
+@if (request()->query('status') == 'danger')
+<div class="alert alert-danger text-center">
+    {{ request()->query('message') }}
+  </div>
+@endif
