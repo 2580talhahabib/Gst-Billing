@@ -50,7 +50,15 @@
               </p>
             </a>
           </li>
-          
+          <li class="nav-item">
+
+            <a href="{{ route('bills.index') }}" class="nav-link  {{ request()->routeIs('bills.index') ? 'active' : '' }}">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Gst Bills 
+              </p>
+            </a>
+          </li>
  {{-- @php
    dump(request())
  @endphp --}}
