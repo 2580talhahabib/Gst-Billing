@@ -56,6 +56,7 @@ Route::post('/bills-store',[GstBillController::class,'store'])->name('bills.stor
 Route::get('/bills-edit/{id}',[GstBillController::class,'edit'])->name('bills.edit');
 Route::put('/bills-update/{id}',[GstBillController::class,'update'])->name('bills.update');
 Route::delete('/bills/{id}', [GstBillController::class, 'destroy'])->name('bills.destroy');
+Route::get('/bills-show/{id}', [GstBillController::class, 'show'])->name('bills.show');
 
 
 Route::get('logout',[AuthController::class,'logout'])->name('logout');

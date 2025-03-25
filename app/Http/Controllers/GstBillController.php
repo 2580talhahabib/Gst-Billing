@@ -141,4 +141,9 @@ $update=GstBill::find($id);
           'message' => 'Bill deleted successfully',
       ]);
   }
+  public function show(string $id){
+    $show=GstBill::find($id);
+    return view('admin.GstBill.show',compact('show'));
+    
+  }
 }

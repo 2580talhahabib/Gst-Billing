@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Show Bills Details</h1>
+                        <h1>View Bills Details</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -34,55 +34,40 @@
                                         <label for="inputEmail3" class="col-sm-2 col-form-label" class="form-label">Parties
                                             Type Name</label>
                                         <div class="col-sm-10">
-                                            <select name="parties_type_id" id="parties_type_id" class="form-control">
-                                                @foreach ($parties_type as $party)
-                                                    <option value="{{ $party->id }}">{{ $party->parties_name }}</option>
-                                                @endforeach
-                                            </select>
-                                            <p></p>
+                                            <h5> : {{ $show->parties_type->parties_name }}</h5>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Invoice Date</label>
                                         <div class="col-sm-10">
-                                            <input name="invoice_date" type="date" class="form-control"
-                                                id="invoice_date">
-                                            <p></p>
+                                            <h5> : {{ $show->invoice_date }}</h5>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Invoice No</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="invoice_no" name="invoice_no">
-                                            <p></p>
+                                            <h5> : {{ $show->invoice_no }}</h5>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Item Descripation</label>
                                         <div class="col-sm-10">
-                                            {{-- <textarea type="text" class="form-control" id="inputEmail3"  name="item_desc"> --}}
-                                            <textarea name="item_desc" id="item_desc" rows="5" cols="80"
-                                                class="w-full p-3 rounded-lg shadow-md border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none resize-none"
-                                                placeholder="Enter your description here..."></textarea>
-                                            <p></p>
+                                            <h5> : {{ $show->item_desc }}</h5>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Total Amount </label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="total_amount"
-                                                name="total_amount">
-                                            <p></p>
+                                            <h5> : {{ $show->total_amount }}</h5>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">CGST Rate</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="cgst_rate" name="cgst_rate">
-                                            <p></p>
+                                            <h5> : {{ $show->cgst_rate }}</h5>
                                         </div>
                                     </div>
 
@@ -90,8 +75,7 @@
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">SGST Rate</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="sgst_rate" name="sgst_rate">
-                                            <p></p>
+                                            <h5> : {{ $show->sgst_rate }}</h5>
                                         </div>
                                     </div>
 
@@ -99,8 +83,7 @@
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">IGST Rate</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="igst_rate" name="igst_rate">
-                                            <p></p>
+                                            <h5> : {{ $show->igst_rate }}</h5>
                                         </div>
                                     </div>
 
@@ -109,8 +92,7 @@
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">CGST Amount</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="cgst_amount" name="cgst_amount">
-                                            <p></p>
+                                            <h5> : {{ $show->cgst_amount }}</h5>
                                         </div>
                                     </div>
 
@@ -119,8 +101,7 @@
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">SGST Amount</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="sgst_amount" name="sgst_amount">
-                                            <p></p>
+                                            <h5> : {{ $show->sgst_amount }}</h5>
                                         </div>
                                     </div>
 
@@ -128,9 +109,7 @@
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">IGST Amount</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="igst_amount"
-                                                name="igst_amount">
-                                            <p></p>
+                                            <h5> : {{ $show->igst_amount }}</h5>
                                         </div>
                                     </div>
 
@@ -138,9 +117,7 @@
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Tax Amount</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="tax_amount"
-                                                name="tax_amount">
-                                            <p></p>
+                                            <h5> : {{ $show->tax_amount }}</h5>
                                         </div>
                                     </div>
 
@@ -148,27 +125,21 @@
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Net Amount</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" id="net_amount"
-                                                name="net_amount">
-                                            <p></p>
+                                            <h5> : {{ $show->net_amount }}</h5>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Declaration</label>
                                         <div class="col-sm-10">
-
-                                            <textarea name="declaration" id="declaration" rows="5" cols="80"
-                                                class="w-full p-3 rounded-lg shadow-md border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none resize-none"
-                                                placeholder="Enter your description here..."></textarea>
-                                            <p></p>
+                                            <h5> : {{ $show->declaration }}</h5>
                                         </div>
                                     </div>
 
                                     <!-- /.card-body -->
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-info">Submit</button>
-                                        <a type="submit" href="{{ route('parties_type') }}"
+                                       
+                                        <a type="submit" href="{{ route('bills.index') }}"
                                             class="btn btn-default float-right">Cancel</a>
                                     </div>
                                     <!-- /.card-footer -->
