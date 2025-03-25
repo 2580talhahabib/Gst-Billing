@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Parties </h1>
+            <h1>Gst Bills </h1>
           </div>
          
         </div>
@@ -21,7 +21,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Parties  List</h3>
+                <h3 class="card-title">Gst Bills</h3>
                  <a href="{{ route('bills.create')}}" class="float-right btn btn-primary">Add New Bills</a>
               </div>
               <!-- /.card-header -->
@@ -57,6 +57,10 @@
                     <td>{{ $records->total_amount }}</td>
                     <td>{{ $records->tax_amount }}</td>
                     <td>{{ $records->net_amount }}</td>
+                    <td class="d-flex"> 
+                      <a href="{{ route('bills.edit',$records->id) }}"  class="btn btn-info m-1"><i class="fas fa-pencil-alt"></i></a>
+                      <a   data-id={{ $records->id }} class="btn btn-danger m-1 deleted" ><i class="fas fa-trash"></i></a>
+                    </td>
                    
                     {{-- <td class="d-flex"> 
                     <a href="{{ route('parties.edit',$records->id) }}"  class="btn btn-info m-1"><i class="fas fa-pencil-alt"></i></a>
@@ -103,8 +107,9 @@
 $(document).ready(function(){
   $(".deleted").click(function(e){
  e.preventDefault();
- let id=$('.deleted').data('id');
- let url="{{route('parties.Destroy', 'ids')  }}";
+ let id=$(this).data('id');
+ console.log(id)
+ let url="{{route('bills.destroy', 'ids')  }}";
  url=url.replace('ids',id);
 
  $.ajax({
@@ -117,9 +122,9 @@ $(document).ready(function(){
         },
   success:function(response){
   if(response.status == true){
-   window.location.href"{{ route('parties.index') }}?status=success&message=Record deleted successfully"
+   window.location.href="{{ route('bills.index') }}?status=success&message=Bill deleted successfully"
   }else{
-     window.location.href="{{ route('parties.index') }}?status=danger&message=Record did not found"
+     window.location.href="{{ route('bills.index') }}?status=danger&message=Bill did not found"
   }
   }})
 
