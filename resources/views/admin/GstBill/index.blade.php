@@ -32,39 +32,47 @@
                       <th style="width: 10px">#</th>
                    
                       <th>Parties Type</th>
-                      <th>Name</th>
-                      <th>Phone </th>
-                      <th>Address</th>
-                      <th>Account Holder Name</th>
-                      <th>Account Number</th>
-                      <th>Bank Name</th>
-                      <th>IFSC Code</th>
-                      <th>Branch Address</th>
+                      <th>Invoice Date</th>
+                      <th>Invoice No </th>
+                      <th>Total Amount</th>
+                      <th>Tax Amount</th>
+                      <th>Net Amount</th>
                       <th>Action</th>
                    
                     </tr>
                   </thead>
-                  {{-- <tbody>
-                    @foreach ($record as $records)
+              <tbody>
+                @php
+                    $totalamount= 0;
+                @endphp
+                    @foreach ($record as $records) 
+                    @php
+                        $totalamount=$totalamount + $records->total_amount ;
+                    @endphp
                     <tr>
                     <td>{{ $records->id }}</td>
                     <td>{{ $records->parties_type->parties_name }}</td>
-                    <td>{{ $records->name }}</td>
-                    <td>{{ $records->phone }}</td>
-                    <td>{{ $records->address }}</td>
-                    <td>{{ $records->account_holder_name }}</td>
-                    <td>{{ $records->account_number }}</td>
-                    <td>{{ $records->bank_name }}</td>
-                    <td>{{ $records->ifsc_code }}</td>
-                    <td>{{ $records->branch_address }}</td>
-                    <td class="d-flex"> 
+                    <td>{{  date('d-m-Y',strtotime($records->invoice_date))   }}</td>
+                    <td>{{ $records->invoice_no }}</td>
+                    <td>{{ $records->total_amount }}</td>
+                    <td>{{ $records->tax_amount }}</td>
+                    <td>{{ $records->net_amount }}</td>
+                   
+                    {{-- <td class="d-flex"> 
                     <a href="{{ route('parties.edit',$records->id) }}"  class="btn btn-info m-1"><i class="fas fa-pencil-alt"></i></a>
                     <a href="#"  data-id={{ $records->id }} class="btn btn-danger m-1 deleted" ><i class="fas fa-trash"></i></a>
-                  </td>
+                  </td> --}}
                     </tr>
                     @endforeach
+                    @if (!empty($totalamount))
+                    <tr>
+                      <th colspan="4"> Total (Rs)</th>
+                      <td> Rs. {{ number_format($totalamount) }}</td>
+                    </tr>
+                        
+                    @endif
                  
-                  </tbody> --}}
+                  </tbody> 
                 </table>
               </div>
               <!-- /.card-body -->

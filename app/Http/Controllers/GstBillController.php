@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Validator;
 class GstBillController extends Controller
 {
   public function index(){
-    
-    return view('admin.GstBill.index');
+    $record=GstBill::with('parties_type')->get();
+    return view('admin.GstBill.index',compact('record'));
 
   }
   public function create(){
@@ -22,7 +22,7 @@ class GstBillController extends Controller
  $validator=Validator::make($req->all(),[
   'parties_type_id'=>'required',
   'invoice_date'=>'required',
-  'invoice_no	'=>'required',
+  'invoice_no'=>'required',
   'item_desc'=>'required',
   'total_amount'=>'required',
   'cgst_rate'=>'required',

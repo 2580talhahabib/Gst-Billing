@@ -61,8 +61,8 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Item Descripation</label>
                     <div class="col-sm-10">
                       {{-- <textarea type="text" class="form-control" id="inputEmail3"  name="item_desc"> --}}
-                        <textarea  name="description"
-                        id="description"
+                        <textarea  name="item_desc"
+                        id="item_desc"
                         rows="5"
                         cols="80"
                          class="w-full p-3 rounded-lg shadow-md border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none resize-none"
@@ -198,13 +198,21 @@
    data:$("#formsubmit").serialize(),
    headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
 success:function(response){
-if(repsonse.status == false){
-console.log(response.status)
+let error=response.errors;
+if(error){
+  $('.is-invalid').removeClass('is-invalid');
+    $('.invalid-feedback').html('');
+  for (const field in error) {
+    if (Object.prototype.hasOwnProperty.call(error, field)) {
+      const element = error[field];
+      $(`[name="${field}"]`).addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(element)
+      
+    }
+  }
 }else{
-
+   window.location.href="{{ route('bills.index') }}?status=success&message=Bill Added Successfully";
 }
 }
-
  })
     })
   })

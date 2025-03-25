@@ -13,4 +13,7 @@ class parties_type extends Model
     public function parties(){
    return $this->hasOne(Party::class);
     }
+    public function gstbills(){
+        return $this->hasOne(GstBill::class);
+    }
 }
