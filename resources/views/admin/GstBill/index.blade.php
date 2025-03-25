@@ -58,6 +58,7 @@
                     <td>{{ $records->tax_amount }}</td>
                     <td>{{ $records->net_amount }}</td>
                     <td class="d-flex"> 
+                      <a href="{{ route('bills.edit',$records->id) }}"  class="btn btn-info m-1"><i class="fa-regular fa-eye"></i></a>
                       <a href="{{ route('bills.edit',$records->id) }}"  class="btn btn-info m-1"><i class="fas fa-pencil-alt"></i></a>
                       <a   data-id={{ $records->id }} class="btn btn-danger m-1 deleted" ><i class="fas fa-trash"></i></a>
                     </td>
