@@ -9,9 +9,16 @@ use Illuminate\Support\Facades\Validator;
 
 class PartyController extends Controller
 {
- public function index(){
+ public function index(Request $req){
   //  $record=Party::get();
-  $record=Party::with('parties_type')->get();
+  $record=Party::with('parties_type');
+  if(!empty($req->get('search'))){
+    $record=$record->where('id','like','%'.$req->get('search').'%');
+    }
+    if(!empty($req->get('name'))) {
+      $record = $record->where('name','like', '%'.$req->get('name').'%');
+  }
+  $record=$record->get();
 return view('admin.parties.list',compact('record'));
  }
  public function create(){

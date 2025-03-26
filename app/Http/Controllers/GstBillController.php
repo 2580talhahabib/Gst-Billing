@@ -9,8 +9,16 @@ use Illuminate\Support\Facades\Validator;
 
 class GstBillController extends Controller
 {
-  public function index(){
-    $record=GstBill::with('parties_type')->get();
+
+  public function index(Request $req){
+    $record=GstBill::with('parties_type');
+    if(!empty($req->get('search'))){
+    $record=$record->where('id','like','%'.$req->get('search').'%');
+    }
+    if(!empty($req->get('parties'))) {
+      $record = $record->whereRelation('parties_type', 'parties_name', 'like', '%'.$req->get('parties').'%');
+  }
+    $record=$record->get();
     return view('admin.GstBill.index',compact('record'));
 
   }

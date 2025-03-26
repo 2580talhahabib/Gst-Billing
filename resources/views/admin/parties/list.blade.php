@@ -21,7 +21,30 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Parties  List</h3>
+                <h3 class="card-title">Search Parties </h3> <br>
+                <form action="">
+                    <div class="container ">
+                        <div class="search-container d-flex">
+                            <div class="id m-3">
+                                <h5 class="text-muted m">ID</h5>
+                                <input type="text" value="{{ Request::get('search') }}" name="search"
+                                    class="border border-3 rounded-lg border-muted ">
+                            </div>
+                            <div class="parites_type m-3">
+                                <h5 class="text-muted">Name</h5>
+                                <input type="text" value="{{ Request::get('name') }}" name="name"
+                                    class="border border-3 rounded-lg border-muted ">
+                            </div>
+                        </div>
+                        <div class="buttons m-5"></div>
+                        <button type="submit" class="btn btn-primary ms-5">submit</button>
+                        <a class="btn btn-danger ms-5">Reset</a>
+                    </div>
+
+                </form>
+
+
+
                  <a href="{{ route('parties.create')}}" class="float-right btn btn-primary">Add New Parties</a>
               </div>
               <!-- /.card-header -->
