@@ -28,6 +28,11 @@
     <link rel="stylesheet" href="{{ url('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ url('plugins/summernote/summernote-bs4.min.css') }}">
+    {{-- Dropzone  --}}
+    <link rel="stylesheet" href="{{ url('admin/Dropzone/css/dropzone.min.css') }}">
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -118,6 +123,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="{{ url('admin/Dropzone/js/dropzone.min.js') }}"></script>
 </body>
 
 </html>

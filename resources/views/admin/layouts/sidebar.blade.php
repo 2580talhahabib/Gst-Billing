@@ -59,6 +59,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+
+            <a href="{{ route('myaccount') }}" class="nav-link  {{ request()->routeIs('myaccount') ? 'active' : '' }}">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                My Account
+              </p>
+            </a>
+          </li>
  {{-- @php
    dump(request())
  @endphp --}}

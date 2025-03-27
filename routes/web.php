@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GstBillController;
+use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\PartiesTypeController;
 use App\Http\Controllers\PartyController;
 use Illuminate\Auth\Events\Logout;
@@ -57,6 +58,12 @@ Route::get('/bills-edit/{id}',[GstBillController::class,'edit'])->name('bills.ed
 Route::put('/bills-update/{id}',[GstBillController::class,'update'])->name('bills.update');
 Route::delete('/bills/{id}', [GstBillController::class, 'destroy'])->name('bills.destroy');
 Route::get('/bills-show/{id}', [GstBillController::class, 'show'])->name('bills.show');
+  
+
+// MyAccountController 
+Route::get('Myaccount',[MyAccountController::class, 'myaccount'])->name('myaccount');
+Route::post('myaccount_update',[MyAccountController::class,'myaccount_update'])->name('myaccount_update');
+
 
 
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
