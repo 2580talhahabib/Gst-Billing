@@ -89,4 +89,15 @@ if($validator->fails()){
             $pdf = Pdf::loadView('admin.parties_Type.pdf', $data);
             return $pdf->download('partiesType.pdf');
             }
+            public function singlepdf_generator(String $id){
+                $getsinglerecord=parties_type::find($id);
+                $data=[
+                    'title'=>"<h1>Programing & Web Development Tutorials and script</h1>",
+                    'date'=>date('m/d/Y'),
+                    'party'=>$getsinglerecord,
+                ];
+                
+                    $pdf = Pdf::loadView('admin.parties_Type.pdfsingle', $data);
+                    return $pdf->download('singleRecord.pdf');
+            }
 }

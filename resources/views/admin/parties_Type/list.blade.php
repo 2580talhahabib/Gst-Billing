@@ -47,8 +47,10 @@
                       <td>{{ $record->id }}</td>
                       <td>{{ $record->parties_name }}</td>
                       <td>
+                        <a href="{{ route('parties_type.singlepdf', $record->id) }}" class="btn btn-success"><i class="fas fa-file-pdf mr-1"></i></a>
                         <a href="{{ route('parties_type_edit', $record->id) }}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
                         <a href="" onclick="deleteCategory({{ $record->id }})" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        
                       </td>
                      
                     </tr>

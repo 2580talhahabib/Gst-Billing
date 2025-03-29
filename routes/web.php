@@ -40,6 +40,7 @@ Route::get('/parties_type_edit/{id}',[PartiesTypeController::class,'parties_type
 Route::post('/parties_type_update/{id}',[PartiesTypeController::class,'parties_type_update'])->name('parties_type_update');
 Route::delete('/parties_type_delete/{id}',[PartiesTypeController::class,'parties_type_delete'])->name('parties_type_delete');
 Route::get('/parties_type/pdf-generator',[PartiesTypeController::class,'pdf_generator'])->name('parties_type.pdf');
+Route::get('/parties_type/singlepdf_generator/{id}',[PartiesTypeController::class,'singlepdf_generator'])->name('parties_type.singlepdf');
 
 
 
