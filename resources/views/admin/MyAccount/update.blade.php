@@ -40,7 +40,7 @@
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
                   <div class="col-sm-10">
-                    <input type="text" value="{{ Auth::user()->email}}" class="form-control" id="inputEmail3" placeholder="Enter your Email" name="email">
+                    <input type="text" value="{{ Auth::user()->email}}" class="form-control" id="emailerror" placeholder="Enter your Email" name="email">
                     <p></p>
                   </div>
                 </div>
@@ -150,9 +150,17 @@ $(document).ready(function(){
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        success:function(response){
-          console.log(response)
-        }
+        success: function(response) {
+    console.log(response);
+    if(response.errors && response.errors.email) {
+        $('#emailerror').addClass('is-invalid')
+                       .siblings('p')
+                       .addClass('invalid-feedback')
+                       .text(response.errors.email[0]); // Get first error message
+    } else if(response.status === true) {
+        window.location.href = "{{ route('dashboard') }}?status=success&message=Account+Details+Updated+successfully";
+    }
+}
     })
   })
 })

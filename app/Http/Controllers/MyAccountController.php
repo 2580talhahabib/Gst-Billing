@@ -24,10 +24,11 @@ class MyAccountController extends Controller
 
     if($validator->passes()) {
         $updateData = [
-            'name' => $req->name,
             'email' => $req->email,
-           
         ];
+        if($req->name){
+            $updateData['name']=$req->name;
+        }
         if($req->password){
             $updateData['password'] = Hash::make($req->password);
         }
@@ -53,7 +54,7 @@ class MyAccountController extends Controller
     } else{
         return response()->json([
             'status'=>false,
-             'Errors'=>$validator->errors(),
+             'errors'=>$validator->errors(),
         ]);
     }
 }

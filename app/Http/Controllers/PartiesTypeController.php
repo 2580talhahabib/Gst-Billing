@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\parties_type;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Validator;
-use Nette\Utils\Strings;
+
 
 class PartiesTypeController extends Controller
 {
@@ -75,5 +77,16 @@ if($validator->fails()){
                     'message'=>'Partie deleted successfully',
                     'record'=>$data,
                 ]);
+            }
+            public function pdf_generator(){
+                $getRecordAll=parties_type::get();
+               $data=[
+                'title'=>'Welcome to Talha Billing Softwere',
+                'date'=>date('m/d/Y'),
+                'parties'=>$getRecordAll,
+               ];
+        
+            $pdf = Pdf::loadView('admin.parties_Type.pdf', $data);
+            return $pdf->download('partiesType.pdf');
             }
 }

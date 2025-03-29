@@ -28,6 +28,7 @@
               <div class="card-header">
                 <h3 class="card-title">Parties Type List</h3>
                  <a href="{{ route('parties_type_add') }}" class="float-right btn btn-primary">Add New Parties Type</a>
+                      <a href="{{ route('parties_type.pdf') }}" class="float-right btn btn-success mr-3">PDF Generator</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
